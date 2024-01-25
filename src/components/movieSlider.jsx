@@ -1,6 +1,6 @@
 // src/components/CardSlider.js
 import "../App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import img1 from "../assets/images/other/MovieImages/img1.jpg";
 import img2 from "../assets/images/other/MovieImages/img2.jpg";
 import img3 from "../assets/images/other/MovieImages/img3.jpg";
@@ -26,6 +26,28 @@ const images = [
 //  }
 const MovieSlider = () => {
   const [imageIndex, setImageIndex] = useState(0);
+  const [isSmall, setIsSmall] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 600) {
+        setIsSmall(false);
+      } else {
+        setIsSmall(true);
+      }
+    };
+
+    // Attach the event listener
+    window.addEventListener("resize", handleResize);
+
+    // Initial setup
+    handleResize();
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const settings = {
     dots: true,
@@ -39,48 +61,64 @@ const MovieSlider = () => {
     prevArrow: <img src={LeftArrow} className="md:h-4 " />,
     nextArrow: <img src={RightArrow} className="md:h-4 " />,
     beforeChange: (current, next) => setImageIndex(next),
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          initialSlide: 2,
-          vertical: true,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          vertical: true,
-          verticalSwiping: true,
-        },
-      },
-    ],
+    // responsive: [
+    //   {
+    //     breakpoint: 1024,
+    //     settings: {
+    //       slidesToShow: 3,
+    //       slidesToScroll: 1,
+    //       infinite: true,
+    //       dots: true,
+    //     },
+    //   },
+    //   {
+    //     breakpoint: 600,
+    //     settings: {
+    //       slidesToShow: 2,
+    //       slidesToScroll: 1,
+    //       initialSlide: 2,
+    //       vertical: true,
+    //     },
+    //   },
+    //   {
+    //     breakpoint: 480,
+    //     settings: {
+    //       slidesToShow: 3,
+    //       slidesToScroll: 1,
+    //       vertical: true,
+    //       verticalSwiping: true,
+    //     },
+    //   },
+    // ],
   };
 
   return (
     <>
-      <div className="mt-20 md:mx-10 rounded-md">
-        <Slider {...settings}>
+      {!isSmall && (
+        <div className="mt-20 md:mx-10 mx-0 rounded-md">
+          <Slider {...settings}>
+            {images.map((img, index) => (
+              <div
+                key={img.key}
+                className={`${
+                  index === imageIndex ? "slide activeSlide" : "slide"
+                } rounded-md md:ml-8`}
+              >
+                <img
+                  src={img.image}
+                  alt=""
+                  className="md:h-[13.3rem] h-[10rem]"
+                />
+              </div>
+            ))}
+          </Slider>
+        </div>
+      )}
+
+      {isSmall && (
+        <div className="flex flex-col space-x-4 space-y-4 m-4 items-center">
           {images.map((img, index) => (
-            <div
-              key={img.key}
-              className={`${
-                index === imageIndex ? "slide activeSlide" : "slide"
-              } rounded-md md:ml-8`}
-            >
+            <div key={img.key}>
               <img
                 src={img.image}
                 alt=""
@@ -88,8 +126,8 @@ const MovieSlider = () => {
               />
             </div>
           ))}
-        </Slider>
-      </div>
+        </div>
+      )}
     </>
   );
 };

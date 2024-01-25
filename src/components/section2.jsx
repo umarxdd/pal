@@ -50,12 +50,8 @@ const Section2 = () => {
             </div>
           </div>
 
-          <div className="">
-            <img
-              src={img}
-              alt=""
-              className="rounded md:min-w-[90vh] max-h-[115vh]"
-            />
+          <div className="rounded md:min-w-[90vh] max-h-[115vh]">
+            <img src={img} alt="" className="" />
           </div>
         </div>
       </div>

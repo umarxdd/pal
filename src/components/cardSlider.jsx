@@ -76,7 +76,7 @@ const CardSlider = ({ setTheAddr, setVideoAddr }) => {
         setSlidesToShow(4);
       } else if (window.innerWidth >= 768) {
         setSlidesToShow(3);
-      } else if (window.innerWidth >= 400) {
+      } else if (window.innerWidth >= 500) {
         setSlidesToShow(2);
       } else {
         setSlidesToShow(1);
@@ -114,7 +114,7 @@ const CardSlider = ({ setTheAddr, setVideoAddr }) => {
                 }}
               >
                 <img
-                  className="rounded-md px-2 h-[10rem]"
+                  className="rounded-md px-2 md:h-[10rem]"
                   src={img.image}
                   alt=""
                 />
