@@ -1,0 +1,64 @@
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
+/* Target the YouTube iframe container */
+.ytVideo {
+  position: relative;
+  width: 560px; /* Adjust the width and height as needed */
+  height: 315px;
+}
+
+/* Style the play button */
+.ytVideo::after {
+  content: "\25BA"; /* Unicode character for a right-pointing triangle (play icon) */
+  font-size: 48px; /* Adjust the size as needed */
+  color: #ff0000; /* Adjust the color as needed */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+/*  */
+
+/* .slide img {
+  width: 20rem;
+  margin: 0;
+} */
+
+@media only screen and (min-width: 768px) {
+  .slide {
+    transform: scale(0.9);
+    transition: transform 300ms;
+    opacity: 0.5;
+    margin: 0 auto;
+  }
+
+  .activeSlide {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+/* .slide {
+  opacity: 0.5;
+  margin: 5 0;
+}
+
+.activeSlide {
+  transform: scale(1.2);
+  opacity: 1;
+  margin: 5 0;
+} */
+
+/* Apply styles only when the screen is larger than medium */
+/* @media only screen and (min-width: 768px) {
+  .slide {
+    transform: scale(0.9);
+    transition: transform 300ms;
+  }
+
+  .activeSlide {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+} */
