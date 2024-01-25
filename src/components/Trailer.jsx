@@ -14,19 +14,19 @@ const Trailer = ({ videoAddr }) => {
             <p className="font-semibold text-2xl">PROFESSIONAL CAREER</p>
           </div>
           <div className="grid md:grid-cols-5 grid-cols-2 space-x-4 pb-4">
-            <div className="text-center max-w-[40vw] py-4">
+            <div className="flex flex-col space-y-3 text-center max-w-[40vw] py-4">
               <h1 className=" sm:text-[45px] text-2xl">50+</h1>
               <p className="">Capturing stories with visual brilliance</p>
             </div>
-            <div className="text-center max-w-[40vw] py-4">
+            <div className="flex flex-col space-y-3 text-center max-w-[40vw] py-4">
               <h1 className=" sm:text-[45px] text-2xl">50+</h1>
               <p className="">Capturing stories with visual brilliance</p>
             </div>
-            <div className="text-center max-w-[40vw] py-4">
+            <div className="flex flex-col space-y-3 text-center max-w-[40vw] py-4">
               <h1 className=" sm:text-[45px] text-2xl">50+</h1>
               <p className="">Capturing stories with visual brilliance</p>
             </div>
-            <div className="text-center max-w-[40vw] py-4">
+            <div className="flex flex-col space-y-3 text-center max-w-[40vw] py-4">
               <h1 className=" sm:text-[45px] text-2xl">50+</h1>
               <p className="">Capturing stories with visual brilliance</p>
             </div>
