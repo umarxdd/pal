@@ -6,7 +6,7 @@ import EXIT5 from "../assets/images/first/EXIT5.jpg";
 
 import DAG from "../assets/images/first/DAG.jpg";
 import wisting from "../assets/images/first/wisting.jpg";
-import beforeigners from "../assets/images/first/beforeigners.jpg";
+import beforeigners from "../assets/images/first/Beforeigners.jpg";
 
 import RightArrow from "../assets/images/first/RightArrow.svg";
 import LeftArrow from "../assets/images/first/LeftArrow.svg";
